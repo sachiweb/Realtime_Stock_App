@@ -25,7 +25,7 @@ async def stockTracker(request):
     stockpicker = request.GET.getlist('stockpicker')
     stockshare=str(stockpicker)[1:-1]
     
-    print(stockpicker)
+   
     data = {}
     available_stocks = tickers_nifty50()
     for i in stockpicker:
@@ -56,6 +56,5 @@ async def stockTracker(request):
     time_taken =  end - start
     print(time_taken)
             
-    
-    print(data)
+   
     return render(request, 'mainapp/stocktracker.html', {'data': data, 'room_name': 'track','selectedstock':stockshare})
